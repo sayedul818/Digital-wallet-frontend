@@ -60,8 +60,33 @@ const Login = () => {
     }
   };
 
+  // Predefined credentials for demo
+  const credentialSets = [
+    {
+      label: 'User Login',
+      email: 'user@example.com',
+      password: 'userpass123',
+    },
+    {
+      label: 'Agent Login',
+      email: 'agent@example.com',
+      password: 'agentpass123',
+    },
+    {
+      label: 'Admin Login',
+      email: 'admin@example.com',
+      password: 'adminpass123',
+    },
+  ];
+
+  const handleAutoFill = (cred: { email: string; password: string }) => {
+    setEmail(cred.email);
+    setPassword(cred.password);
+    toast.success('Credentials filled!');
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 bg-white dark:bg-gradient-to-b dark:from-gray-950 dark:to-gray-900">
       <Card className="w-full max-w-md border-0 shadow-xl">
         <CardHeader className="space-y-4">
           <div className="flex justify-center">
@@ -75,6 +100,19 @@ const Login = () => {
           </div>
         </CardHeader>
         <CardContent>
+          {/* Auto-credential section */}
+          <div className="flex justify-center gap-2 mb-6">
+            {credentialSets.map((cred) => (
+              <button
+                key={cred.label}
+                type="button"
+                className="px-3 py-1.5 rounded-lg border border-blue-200 dark:border-gray-700 bg-blue-50 dark:bg-gray-800 text-blue-700 dark:text-blue-200 font-medium text-xs md:text-sm shadow-sm hover:bg-blue-100 dark:hover:bg-gray-700 hover:scale-105 transition-all duration-200"
+                onClick={() => handleAutoFill(cred)}
+              >
+                {cred.label}
+              </button>
+            ))}
+          </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
