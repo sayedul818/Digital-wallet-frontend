@@ -100,11 +100,11 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         <aside
           className={`${
             isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-          } lg:translate-x-0 fixed lg:sticky top-0 left-0 z-40 h-screen w-64 bg-background border-r transition-transform duration-300`}
+          } lg:translate-x-0 fixed lg:sticky top-0 left-0 z-40 h-screen w-64 bg-background border-r transition-transform duration-300 overflow-hidden`}
         >
           <div className="flex flex-col h-full">
             {/* Logo */}
-            <div className="hidden lg:flex items-center gap-2 p-6 border-b">
+            <div className="hidden lg:flex items-center gap-2 p-6 border-b flex-shrink-0">
               <div className="h-10 w-10 rounded-lg bg-gradient-primary flex items-center justify-center">
                 <Wallet className="h-6 w-6 text-primary-foreground" />
               </div>
@@ -117,7 +117,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             </div>
 
             {/* User Info */}
-            <div className="p-4 border-b">
+            <div className="p-4 border-b flex-shrink-0">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-gradient-accent flex items-center justify-center">
                   <span className="text-accent-foreground font-semibold">
@@ -132,7 +132,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             </div>
 
             {/* Navigation */}
-            <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
+            <nav className="flex-1 p-4 space-y-1 overflow-y-auto scrollbar-hide">
               {menuItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 return (
@@ -154,7 +154,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             </nav>
 
             {/* Bottom Actions */}
-            <div className="p-4 border-t space-y-2">
+            <div className="p-4 border-t space-y-2 flex-shrink-0">
               <Button
                 variant="outline"
                 className="w-full justify-start"
