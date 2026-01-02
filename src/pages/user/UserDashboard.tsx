@@ -6,16 +6,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Wallet, ArrowUpCircle, ArrowDownCircle, Send, Eye, EyeOff } from 'lucide-react';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import GuidedTour from '@/components/GuidedTour';
 import { Step } from 'react-joyride';
@@ -23,40 +13,12 @@ import { Step } from 'react-joyride';
 const UserDashboard = () => {
   const { user } = useSelector((state: RootState) => state.auth);
   const [showBalance, setShowBalance] = useState(true);
-  const [depositAmount, setDepositAmount] = useState('');
-  const [withdrawAmount, setWithdrawAmount] = useState('');
-  const [isDepositOpen, setIsDepositOpen] = useState(false);
-  const [isWithdrawOpen, setIsWithdrawOpen] = useState(false);
 
   const { data: balanceData } = useGetBalanceQuery(undefined);
   const { data: txData, isLoading: txLoading } = useGetTransactionsQuery({ page: 1, limit: 3 });
 
   const balance = balanceData?.balance ?? user?.balance ?? 0;
   const recentTransactions = txData?.transactions || [];
-
-  const handleDeposit = () => {
-    const amount = parseFloat(depositAmount);
-    if (amount > 0) {
-      toast.success(`Deposit request of $${amount} sent to agent`);
-      setDepositAmount('');
-      setIsDepositOpen(false);
-    } else {
-      toast.error('Please enter a valid amount');
-    }
-  };
-
-  const handleWithdraw = () => {
-    const amount = parseFloat(withdrawAmount);
-    if (amount > 0 && amount <= balance) {
-      toast.success(`Withdrawal of $${amount} successful`);
-      setWithdrawAmount('');
-      setIsWithdrawOpen(false);
-    } else if (amount > balance) {
-      toast.error('Insufficient balance');
-    } else {
-      toast.error('Please enter a valid amount');
-    }
-  };
 
   const tourSteps: Step[] = [
     {
@@ -119,85 +81,37 @@ const UserDashboard = () => {
 
         {/* Quick Actions */}
         <div className="quick-actions grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Dialog open={isDepositOpen} onOpenChange={setIsDepositOpen}>
-            <DialogTrigger asChild>
-              <Card className="border-0 shadow-card hover:shadow-lg transition-all cursor-pointer">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-full bg-gradient-accent flex items-center justify-center">
-                      <ArrowDownCircle className="h-6 w-6 text-accent-foreground" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold">Deposit Money</h3>
-                      <p className="text-sm text-muted-foreground">Add funds via agent</p>
-                    </div>
+          <Link to="/user/deposit">
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all cursor-pointer h-full">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-full bg-gradient-accent flex items-center justify-center">
+                    <ArrowDownCircle className="h-6 w-6 text-accent-foreground" />
                   </div>
-                </CardContent>
-              </Card>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Deposit Money</DialogTitle>
-                <DialogDescription>Request to add money through an agent</DialogDescription>
-              </DialogHeader>
-              <div className="space-y-4 py-4">
-                <div className="space-y-2">
-                  <Label htmlFor="deposit-amount">Amount</Label>
-                  <Input
-                    id="deposit-amount"
-                    type="number"
-                    placeholder="0.00"
-                    value={depositAmount}
-                    onChange={(e) => setDepositAmount(e.target.value)}
-                  />
+                  <div>
+                    <h3 className="font-semibold">Deposit Money</h3>
+                    <p className="text-sm text-muted-foreground">Add funds via agent</p>
+                  </div>
                 </div>
-                <Button onClick={handleDeposit} className="w-full">
-                  Request Deposit
-                </Button>
-              </div>
-            </DialogContent>
-          </Dialog>
+              </CardContent>
+            </Card>
+          </Link>
 
-          <Dialog open={isWithdrawOpen} onOpenChange={setIsWithdrawOpen}>
-            <DialogTrigger asChild>
-              <Card className="border-0 shadow-card hover:shadow-lg transition-all cursor-pointer">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="h-12 w-12 rounded-full bg-gradient-primary flex items-center justify-center">
-                      <ArrowUpCircle className="h-6 w-6 text-primary-foreground" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold">Withdraw Money</h3>
-                      <p className="text-sm text-muted-foreground">Cash out to bank</p>
-                    </div>
+          <Link to="/user/withdraw">
+            <Card className="border-0 shadow-card hover:shadow-lg transition-all cursor-pointer h-full">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-full bg-gradient-primary flex items-center justify-center">
+                    <ArrowUpCircle className="h-6 w-6 text-primary-foreground" />
                   </div>
-                </CardContent>
-              </Card>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Withdraw Money</DialogTitle>
-                <DialogDescription>
-                  Available balance: ${balance.toFixed(2)}
-                </DialogDescription>
-              </DialogHeader>
-              <div className="space-y-4 py-4">
-                <div className="space-y-2">
-                  <Label htmlFor="withdraw-amount">Amount</Label>
-                  <Input
-                    id="withdraw-amount"
-                    type="number"
-                    placeholder="0.00"
-                    value={withdrawAmount}
-                    onChange={(e) => setWithdrawAmount(e.target.value)}
-                  />
+                  <div>
+                    <h3 className="font-semibold">Withdraw Money</h3>
+                    <p className="text-sm text-muted-foreground">Cash out to bank</p>
+                  </div>
                 </div>
-                <Button onClick={handleWithdraw} className="w-full">
-                  Withdraw
-                </Button>
-              </div>
-            </DialogContent>
-          </Dialog>
+              </CardContent>
+            </Card>
+          </Link>
 
           <Link to="/user/send">
             <Card className="border-0 shadow-card hover:shadow-lg transition-all">
