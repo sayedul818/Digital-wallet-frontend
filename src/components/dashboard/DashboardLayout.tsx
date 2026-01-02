@@ -75,7 +75,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
       : userMenuItems;
 
   return (
-    <div className="min-h-screen bg-muted/30">
+    <div className="h-screen flex flex-col bg-muted/30">
       {/* Mobile Header */}
       <div className="lg:hidden sticky top-0 z-50 bg-background border-b">
         <div className="flex items-center justify-between p-4">
@@ -95,12 +95,12 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </div>
       </div>
 
-      <div className="flex">
+      <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         <aside
           className={`${
             isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
-          } lg:translate-x-0 fixed lg:static top-0 left-0 z-40 h-screen lg:h-auto w-64 bg-background border-r transition-transform lg:transition-none duration-300 overflow-hidden`}
+          } lg:translate-x-0 fixed lg:static top-0 left-0 z-40 h-screen w-64 bg-background border-r transition-transform lg:transition-none duration-300 overflow-hidden lg:overflow-hidden`}
         >
           <div className="flex flex-col h-full">
             {/* Logo */}
@@ -173,7 +173,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 p-4 lg:p-8 w-full min-w-0">{children}</main>
+        <main className="flex-1 overflow-y-auto p-4 lg:p-8 min-w-0">{children}</main>
       </div>
 
       {/* Mobile Menu Overlay */}

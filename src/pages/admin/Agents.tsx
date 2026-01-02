@@ -16,6 +16,13 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Search, CheckCircle, Ban } from 'lucide-react';
 import { toast } from 'sonner';
@@ -31,7 +38,12 @@ import {
 } from '@/components/ui/alert-dialog';
 
 const Agents = () => {
-  const [searchQuery, setSearchQuery] = useState('');  const [page] = useState(1);  const { data, isLoading, isError, refetch } = useGetAllUsersQuery({ page, search: searchQuery, role: 'agent' });
+  const [searchQuery, setSearchQuery] = useState('');
+  const [statusFilter, setStatusFilter] = useState('all');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+  
+  const { data, isLoading, isError, refetch } = useGetAllUsersQuery({ page: currentPage, search: searchQuery, role: 'agent' });
   const [approveAgent, { isLoading: isApproving }] = useApproveAgentMutation();
   const [updateUserStatus] = useUpdateUserStatusMutation();
   const [selectedAgent, setSelectedAgent] = useState<any>(null);
@@ -42,6 +54,16 @@ const Agents = () => {
   const [adminCredit] = useAdminCreditMutation();
 
   const agents = data?.users || [];
+  const total = data?.total || 0;
+  const totalPages = Math.ceil(total / itemsPerPage);
+  
+  // Filter agents by status
+  const filteredAgents = agents.filter((agent: any) => {
+    if (statusFilter === 'all') return true;
+    if (statusFilter === 'active') return agent.isActive;
+    if (statusFilter === 'blocked') return !agent.isActive;
+    return true;
+  });
 
   const handleApprove = async (agent: any) => {
     try {
@@ -95,6 +117,16 @@ const Agents = () => {
                 className="pl-9"
               />
             </div>
+            <Select value={statusFilter} onValueChange={setStatusFilter}>
+              <SelectTrigger className="w-full md:w-[180px]">
+                <SelectValue placeholder="Filter by status" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">All Status</SelectItem>
+                <SelectItem value="active">Active</SelectItem>
+                <SelectItem value="blocked">Blocked</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           <div className="rounded-lg border overflow-x-auto scrollbar-custom">
@@ -124,8 +156,8 @@ const Agents = () => {
                       Error loading agents
                     </TableCell>
                   </TableRow>
-                ) : agents.length > 0 ? (
-                  agents.map((agent: any) => (
+                ) : filteredAgents.length > 0 ? (
+                  filteredAgents.map((agent: any) => (
                     <TableRow key={agent._id || agent.id}>
                       <TableCell className="font-medium">{agent.name}</TableCell>
                       <TableCell>{agent.email}</TableCell>
@@ -169,6 +201,35 @@ const Agents = () => {
               </TableBody>
             </Table>
           </div>
+          
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between pt-4">
+              <p className="text-sm text-muted-foreground">
+                Showing {(currentPage - 1) * itemsPerPage + 1} to{' '}
+                {Math.min(currentPage * itemsPerPage, total)} of{' '}
+                {total} agents
+              </p>
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                  disabled={currentPage === 1}
+                >
+                  Previous
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                  disabled={currentPage === totalPages}
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
 

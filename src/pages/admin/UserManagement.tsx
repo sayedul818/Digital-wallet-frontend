@@ -35,6 +35,8 @@ import {
 const UserManagement = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
   const [selectedUser, setSelectedUser] = useState<any>(null);
   const [actionType, setActionType] = useState<'block' | 'unblock' | null>(null);
   const [creditTarget, setCreditTarget] = useState<any>(null);
@@ -43,17 +45,16 @@ const UserManagement = () => {
   const [adminCredit] = useAdminCreditMutation();
 
   // live users from API - filter by role 'user' only
-  const { data, isLoading, isError, refetch } = useGetAllUsersQuery({ page: 1, search: searchQuery, role: 'user' });
+  const { data, isLoading, isError, refetch } = useGetAllUsersQuery({ page: currentPage, search: searchQuery, role: 'user' });
   const [updateUserStatus] = useUpdateUserStatusMutation();
 
   const users = data?.users || [];
+  const total = data?.total || 0;
+  const totalPages = Math.ceil(total / itemsPerPage);
+  
   const filteredUsers = users.filter((user: any) => {
-    const matchesSearch =
-      user.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      user.email?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      user.phone?.includes(searchQuery);
     const matchesStatus = statusFilter === 'all' || (user.isActive ? 'active' : 'blocked') === statusFilter;
-    return matchesSearch && matchesStatus;
+    return matchesStatus;
   });
 
   const handleAction = (user: any, action: 'block' | 'unblock') => {
@@ -189,6 +190,35 @@ const UserManagement = () => {
               </TableBody>
             </Table>
           </div>
+          
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex items-center justify-between pt-4">
+              <p className="text-sm text-muted-foreground">
+                Showing {(currentPage - 1) * itemsPerPage + 1} to{' '}
+                {Math.min(currentPage * itemsPerPage, total)} of{' '}
+                {total} users
+              </p>
+              <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                  disabled={currentPage === 1}
+                >
+                  Previous
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+                  disabled={currentPage === totalPages}
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
 

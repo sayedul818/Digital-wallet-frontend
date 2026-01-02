@@ -45,8 +45,8 @@ const AdminDashboard = () => {
   // Recent activity derived from latest transactions
   const recentActivity = useMemo(() => {
     const txs = txResponse?.transactions || [];
-    // take latest 6 entries
-    return (txs.slice(0, 6) as any[]).map((tx) => ({
+    // take latest 5 entries
+    return (txs.slice(0, 5) as any[]).map((tx) => ({
       id: tx._id || tx.id,
       action: `${tx.type?.replace('-', ' ') || 'Transaction'}: ${tx.status || ''}`.trim(),
       user: tx.sender?.name || tx.receiver?.name || '—',
