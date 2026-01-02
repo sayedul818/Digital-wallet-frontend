@@ -87,7 +87,7 @@ const Transactions = () => {
           </div>
 
           {/* Table */}
-          <div className="rounded-lg border overflow-x-auto">
+          <div className="rounded-lg border overflow-x-auto scrollbar-custom">
             <Table>
               <TableHeader>
                 <TableRow>

@@ -31,7 +31,7 @@ const AgentTransactions = () => {
               Error loading transactions: {(error as any)?.data?.message || (error as any)?.message || 'Unknown error'}
             </div>
           )}
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto scrollbar-custom">
             {isLoading ? (
               <div className="text-center text-muted-foreground py-8">Loading transactions...</div>
             ) : transactions && transactions.length > 0 ? (
