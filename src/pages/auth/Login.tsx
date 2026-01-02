@@ -75,7 +75,7 @@ const Login = () => {
     {
       label: 'Admin Login',
       email: 'admin@example.com',
-      password: 'adminpass123',
+      password: 'admin123',
     },
   ];
 
