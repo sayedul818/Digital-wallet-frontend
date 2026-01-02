@@ -94,7 +94,7 @@ const Register = () => {
           </div>
           <div className="text-center">
             <CardTitle className="text-2xl">Create Account</CardTitle>
-            <CardDescription>Join PayWallet today</CardDescription>
+            <CardDescription>Join PayzaGo today</CardDescription>
           </div>
         </CardHeader>
         <CardContent>

@@ -11,7 +11,7 @@ const HeroSection: React.FC = () => (
     </div>
     <div className="relative z-10 max-w-4xl mx-auto py-20 px-6 md:px-8">
       <h1 className="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">
-        Welcome to PayWallet
+        Welcome to PayzaGo
       </h1>
       <p className="text-lg md:text-xl mb-8 font-medium drop-shadow">
         Your secure, fast, and modern digital wallet. Send, receive, and manage money with confidence.

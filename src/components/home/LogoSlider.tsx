@@ -52,7 +52,7 @@ const LogoSlider: React.FC = () => {
             <span className="text-gray-800 dark:text-white">Trusted By </span>
             <span className="text-rose-600 dark:text-rose-400">World-Class Teams</span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">These leading companies already use PayWallet for their payment needs</p>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">These leading companies already use PayzaGo for their payment needs</p>
         </motion.div>
       </div>
       <div className="relative overflow-hidden w-full">

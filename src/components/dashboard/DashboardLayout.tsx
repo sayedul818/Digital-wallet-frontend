@@ -83,7 +83,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
               <Wallet className="h-5 w-5 text-primary-foreground" />
             </div>
-            <span className="bg-gradient-primary bg-clip-text text-transparent">PayWallet</span>
+            <span className="bg-gradient-primary bg-clip-text text-transparent">PayzaGo</span>
           </Link>
           <Button
             variant="ghost"
@@ -110,7 +110,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
               </div>
               <div>
                 <h1 className="font-bold text-lg bg-gradient-primary bg-clip-text text-transparent">
-                  PayWallet
+                  PayzaGo
                 </h1>
                 <p className="text-xs text-muted-foreground capitalize">{user?.role}</p>
               </div>

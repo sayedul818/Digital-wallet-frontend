@@ -37,7 +37,7 @@ const Security = () => {
     },
     {
       title: "5. Regular Security Audits",
-      content: "PayWallet conducts regular security audits and penetration testing to identify and address vulnerabilities. We partner with independent security firms to ensure our systems meet the highest security standards."
+      content: "PayzaGo conducts regular security audits and penetration testing to identify and address vulnerabilities. We partner with independent security firms to ensure our systems meet the highest security standards."
     },
     {
       title: "6. Compliance & Standards",
@@ -121,7 +121,7 @@ const Security = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-muted-foreground mb-12 text-lg"
           >
-            At PayWallet, security is not an afterthought—it's embedded in every layer of our platform. We invest heavily in state-of-the-art security infrastructure, continuous monitoring, and regular updates to protect your funds and personal information.
+            At PayzaGo, security is not an afterthought—it's embedded in every layer of our platform. We invest heavily in state-of-the-art security infrastructure, continuous monitoring, and regular updates to protect your funds and personal information.
           </motion.p>
 
           <motion.div
@@ -177,7 +177,7 @@ const Security = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground">Log out after using PayWallet on shared devices</span>
+                    <span className="text-muted-foreground">Log out after using PayzaGo on shared devices</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
@@ -199,7 +199,7 @@ const Security = () => {
             className="mt-8 p-6 bg-primary/10 rounded-lg border border-primary/20"
           >
             <p className="text-sm text-muted-foreground">
-              <strong>Report Security Issues:</strong> If you discover a security vulnerability, please report it responsibly to security@paywallet.com. We have a bug bounty program to reward responsible disclosure.
+              <strong>Report Security Issues:</strong> If you discover a security vulnerability, please report it responsibly to security@PayzaGo.com. We have a bug bounty program to reward responsible disclosure.
             </p>
           </motion.div>
         </div>

@@ -14,7 +14,7 @@ const Footer = () => {
                 <Wallet className="h-6 w-6 text-white" />
               </div>
               <span className="text-white">
-                PayWallet
+                PayzaGo
               </span>
             </Link>
             <p className="text-sm text-gray-400 max-w-xs">
@@ -58,7 +58,7 @@ const Footer = () => {
           {/* Bottom Section */}
           <div className="flex items-center justify-between pt-4 border-t border-gray-800">
             <p className="text-xs text-gray-400">
-              &copy; {new Date().getFullYear()} PayWallet. All rights reserved.
+              &copy; {new Date().getFullYear()} PayzaGo. All rights reserved.
             </p>
             <div className="flex gap-4">
               <a href="https://facebook.com/" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
@@ -86,7 +86,7 @@ const Footer = () => {
                   <Wallet className="h-6 w-6 text-white" />
                 </div>
                 <span className="text-white">
-                  PayWallet
+                  PayzaGo
                 </span>
               </Link>
               <p className="text-sm text-gray-400">
@@ -125,7 +125,7 @@ const Footer = () => {
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-            <p>&copy; {new Date().getFullYear()} PayWallet. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} PayzaGo. All rights reserved.</p>
           </div>
         </div>
       </div>

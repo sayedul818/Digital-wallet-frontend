@@ -14,16 +14,16 @@ const FAQ = () => {
       answer: 'Click on "Get Started" or "Register" button and fill in your details. Choose your role (User or Agent) and complete the registration process. You\'ll receive a confirmation and can start using your wallet immediately.',
     },
     {
-      question: 'Is PayWallet secure?',
+      question: 'Is PayzaGo secure?',
       answer: 'Yes, absolutely! We use bank-level encryption for all transactions and data. Your sensitive information is protected with industry-standard security protocols, including SSL encryption, secure authentication, and regular security audits.',
     },
     {
       question: 'How long do transactions take?',
-      answer: 'Transactions on PayWallet are instant! Money is transferred immediately between wallets. You\'ll receive real-time notifications for all transactions.',
+      answer: 'Transactions on PayzaGo are instant! Money is transferred immediately between wallets. You\'ll receive real-time notifications for all transactions.',
     },
     {
       question: 'What are the transaction fees?',
-      answer: 'PayWallet offers competitive transaction fees. Basic transfers between users are free. Agent transactions may have minimal service charges. Check our pricing page for detailed fee structure.',
+      answer: 'PayzaGo offers competitive transaction fees. Basic transfers between users are free. Agent transactions may have minimal service charges. Check our pricing page for detailed fee structure.',
     },
     {
       question: 'How do I add money to my wallet?',
@@ -46,8 +46,8 @@ const FAQ = () => {
       answer: 'Transaction limits depend on your account verification level. Verified accounts have higher limits. Check your account settings to see your current limits and how to increase them.',
     },
     {
-      question: 'Can I use PayWallet on multiple devices?',
-      answer: 'Yes, you can access your PayWallet account from any device. Simply log in with your credentials. For security, you\'ll receive notifications when your account is accessed from a new device.',
+      question: 'Can I use PayzaGo on multiple devices?',
+      answer: 'Yes, you can access your PayzaGo account from any device. Simply log in with your credentials. For security, you\'ll receive notifications when your account is accessed from a new device.',
     },
     {
       question: 'How do I track my transactions?',
@@ -67,7 +67,7 @@ const FAQ = () => {
             Frequently Asked Questions
           </h1>
           <p className="text-xl text-muted-foreground text-center mb-16">
-            Find answers to common questions about PayWallet
+            Find answers to common questions about PayzaGo
           </p>
 
           <Accordion type="single" collapsible className="space-y-4">

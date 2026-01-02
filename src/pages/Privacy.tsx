@@ -37,7 +37,7 @@ const Privacy = () => {
     },
     {
       title: "5. Your Privacy Rights",
-      content: "Depending on your location, you may have certain rights regarding your personal information, including the right to access, correct, or delete your data. To exercise these rights, please contact us at privacy@paywallet.com. We will respond to your request within 30 days."
+      content: "Depending on your location, you may have certain rights regarding your personal information, including the right to access, correct, or delete your data. To exercise these rights, please contact us at privacy@PayzaGo.com. We will respond to your request within 30 days."
     },
     {
       title: "6. Cookies and Tracking",
@@ -45,11 +45,11 @@ const Privacy = () => {
     },
     {
       title: "7. Children's Privacy",
-      content: "PayWallet does not knowingly collect personal information from children under the age of 13. If we become aware that we have collected information from a child under 13, we will take steps to delete such information and terminate the child's account."
+      content: "PayzaGo does not knowingly collect personal information from children under the age of 13. If we become aware that we have collected information from a child under 13, we will take steps to delete such information and terminate the child's account."
     },
     {
       title: "8. Policy Changes",
-      content: "We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. We will notify you of any material changes by posting the updated policy on our website and updating the 'last updated' date. Your continued use of PayWallet following any changes constitutes your acceptance of the new Privacy Policy."
+      content: "We may update this Privacy Policy from time to time to reflect changes in our practices or applicable laws. We will notify you of any material changes by posting the updated policy on our website and updating the 'last updated' date. Your continued use of PayzaGo following any changes constitutes your acceptance of the new Privacy Policy."
     },
   ];
 
@@ -119,7 +119,7 @@ const Privacy = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-muted-foreground mb-12 text-lg"
           >
-            At PayWallet, we prioritize your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.
+            At PayzaGo, we prioritize your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.
           </motion.p>
 
           <motion.div
@@ -149,7 +149,7 @@ const Privacy = () => {
             className="mt-12 p-6 bg-accent/10 rounded-lg border border-accent/20"
           >
             <p className="text-sm text-muted-foreground">
-              <strong>Contact Us:</strong> If you have any questions about this Privacy Policy, please contact us at privacy@paywallet.com
+              <strong>Contact Us:</strong> If you have any questions about this Privacy Policy, please contact us at privacy@PayzaGo.com
             </p>
           </motion.div>
         </div>

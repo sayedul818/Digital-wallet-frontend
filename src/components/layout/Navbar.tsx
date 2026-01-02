@@ -38,7 +38,7 @@ const Navbar = () => {
               <Wallet className="h-6 w-6 text-primary-foreground" />
             </div>
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              PayWallet
+              PayzaGo
             </span>
           </Link>
 

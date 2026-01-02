@@ -7,7 +7,7 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-            About PayWallet
+            About PayzaGo
           </h1>
           <p className="text-xl text-muted-foreground text-center mb-16">
             Building the future of digital payments
@@ -15,7 +15,7 @@ const About = () => {
 
           <div className="prose prose-lg max-w-none mb-16">
             <p className="text-lg leading-relaxed">
-              PayWallet was founded with a simple mission: to make digital transactions accessible, secure, and instant for everyone. We believe that managing money should be simple, transparent, and empowering.
+              PayzaGo was founded with a simple mission: to make digital transactions accessible, secure, and instant for everyone. We believe that managing money should be simple, transparent, and empowering.
             </p>
             <p className="text-lg leading-relaxed">
               Our platform serves users, agents, and businesses with a comprehensive suite of financial tools designed for the modern era. With bank-level security and lightning-fast transactions, we're redefining what a digital wallet can do.
@@ -63,7 +63,7 @@ const About = () => {
           <div className="bg-muted/50 rounded-2xl p-8 md:p-12">
             <h2 className="text-3xl font-bold mb-6">Our Team</h2>
             <p className="text-lg text-muted-foreground mb-4">
-              We're a diverse team of financial experts, security engineers, and designers passionate about creating the best digital wallet experience. Our combined expertise ensures that PayWallet remains at the forefront of fintech innovation.
+              We're a diverse team of financial experts, security engineers, and designers passionate about creating the best digital wallet experience. Our combined expertise ensures that PayzaGo remains at the forefront of fintech innovation.
             </p>
             <p className="text-lg text-muted-foreground">
               Every day, we work to improve our platform, add new features, and ensure that your money is always safe and accessible when you need it.

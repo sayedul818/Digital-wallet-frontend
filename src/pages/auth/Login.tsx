@@ -96,7 +96,7 @@ const Login = () => {
           </div>
           <div className="text-center">
             <CardTitle className="text-2xl">Welcome Back</CardTitle>
-            <CardDescription>Sign in to your PayWallet account</CardDescription>
+            <CardDescription>Sign in to your PayzaGo account</CardDescription>
           </div>
         </CardHeader>
         <CardContent>

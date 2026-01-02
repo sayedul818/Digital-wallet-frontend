@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 const testimonials = [
   {
     name: 'Alice',
-    review: 'PayWallet makes sending money to my family so easy and secure!',
+    review: 'PayzaGo makes sending money to my family so easy and secure!',
     rating: 5
   },
   {

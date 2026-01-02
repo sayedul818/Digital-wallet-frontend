@@ -21,35 +21,35 @@ const Terms = () => {
   const sections = [
     {
       title: "1. Agreement to Terms",
-      content: "By accessing and using PayWallet, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
+      content: "By accessing and using PayzaGo, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service."
     },
     {
       title: "2. Use License",
-      content: "Permission is granted to temporarily download one copy of the materials (information or software) on PayWallet for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not: modify or copy the materials; use the materials for any commercial purpose or for any public display; attempt to decompile, disassemble or reverse engineer any software contained on PayWallet."
+      content: "Permission is granted to temporarily download one copy of the materials (information or software) on PayzaGo for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not: modify or copy the materials; use the materials for any commercial purpose or for any public display; attempt to decompile, disassemble or reverse engineer any software contained on PayzaGo."
     },
     {
       title: "3. Disclaimer",
-      content: "The materials on PayWallet are provided on an 'as is' basis. PayWallet makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights."
+      content: "The materials on PayzaGo are provided on an 'as is' basis. PayzaGo makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights."
     },
     {
       title: "4. Limitations",
-      content: "In no event shall PayWallet or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on PayWallet, even if PayWallet or an authorized representative has been notified orally or in writing of the possibility of such damage."
+      content: "In no event shall PayzaGo or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on PayzaGo, even if PayzaGo or an authorized representative has been notified orally or in writing of the possibility of such damage."
     },
     {
       title: "5. Accuracy of Materials",
-      content: "The materials appearing on PayWallet could include technical, typographical, or photographic errors. PayWallet does not warrant that any of the materials on its website are accurate, complete, or current. PayWallet may make changes to the materials contained on its website at any time without notice."
+      content: "The materials appearing on PayzaGo could include technical, typographical, or photographic errors. PayzaGo does not warrant that any of the materials on its website are accurate, complete, or current. PayzaGo may make changes to the materials contained on its website at any time without notice."
     },
     {
       title: "6. Links",
-      content: "PayWallet has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by PayWallet of the site. Use of any such linked website is at the user's own risk."
+      content: "PayzaGo has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by PayzaGo of the site. Use of any such linked website is at the user's own risk."
     },
     {
       title: "7. Modifications",
-      content: "PayWallet may revise these terms of service for its website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service."
+      content: "PayzaGo may revise these terms of service for its website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service."
     },
     {
       title: "8. Governing Law",
-      content: "These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction in which PayWallet is located, and you irrevocably submit to the exclusive jurisdiction of the courts in that location."
+      content: "These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction in which PayzaGo is located, and you irrevocably submit to the exclusive jurisdiction of the courts in that location."
     },
   ];
 
@@ -84,7 +84,7 @@ const Terms = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="text-muted-foreground mb-12 text-lg"
           >
-            Please read these terms of service carefully before using PayWallet. Your access to and use of PayWallet is conditioned on your acceptance of and compliance with these terms and all other operating rules, policies, and procedures that may be published by PayWallet from time to time.
+            Please read these terms of service carefully before using PayzaGo. Your access to and use of PayzaGo is conditioned on your acceptance of and compliance with these terms and all other operating rules, policies, and procedures that may be published by PayzaGo from time to time.
           </motion.p>
 
           <motion.div
@@ -117,7 +117,7 @@ const Terms = () => {
             className="mt-12 p-6 bg-accent/10 rounded-lg border border-accent/20"
           >
             <p className="text-sm text-muted-foreground">
-              <strong>Contact Us:</strong> If you have any questions about these Terms of Service, please contact us at legal@paywallet.com
+              <strong>Contact Us:</strong> If you have any questions about these Terms of Service, please contact us at legal@PayzaGo.com
             </p>
           </motion.div>
         </div>

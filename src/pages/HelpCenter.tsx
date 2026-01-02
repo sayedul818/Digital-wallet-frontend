@@ -67,7 +67,7 @@ const HelpCenter = () => {
             </motion.div>
             <h1 className="text-4xl font-bold">Help Center</h1>
           </div>
-          <p className="text-primary-foreground/80 text-lg">Get answers to common questions and learn how to use PayWallet</p>
+          <p className="text-primary-foreground/80 text-lg">Get answers to common questions and learn how to use PayzaGo</p>
         </div>
       </motion.div>
 
@@ -88,7 +88,7 @@ const HelpCenter = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email Support</h3>
-                    <p className="text-sm text-muted-foreground mb-3">support@paywallet.com</p>
+                    <p className="text-sm text-muted-foreground mb-3">support@PayzaGo.com</p>
                     <p className="text-xs text-muted-foreground">Response within 24 hours</p>
                   </div>
                 </div>
