@@ -19,6 +19,10 @@ import About from "./pages/About";
 import Features from "./pages/Features";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
+import HelpCenter from "./pages/HelpCenter";
+import Terms from "./pages/Terms";
+import Privacy from "./pages/Privacy";
+import Security from "./pages/Security";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import NotFound from "./pages/NotFound";
@@ -67,6 +71,10 @@ const App = () => (
                         <Route path="/features" element={<Features />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/faq" element={<FAQ />} />
+                        <Route path="/help" element={<HelpCenter />} />
+                        <Route path="/terms" element={<Terms />} />
+                        <Route path="/privacy" element={<Privacy />} />
+                        <Route path="/security" element={<Security />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                       </Routes>

@@ -6,7 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Wallet, Menu, Moon, Sun } from 'lucide-react';
 import { useState } from 'react';
 import { useTheme } from 'next-themes';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 const Navbar = () => {
   const { user, isAuthenticated } = useSelector((state: RootState) => state.auth);
@@ -94,6 +95,9 @@ const Navbar = () => {
               </Button>
             </SheetTrigger>
             <SheetContent>
+              <VisuallyHidden>
+                <SheetTitle>Navigation Menu</SheetTitle>
+              </VisuallyHidden>
               <div className="flex flex-col gap-4 mt-8">
                 {navLinks.map((link) => (
                   <Link

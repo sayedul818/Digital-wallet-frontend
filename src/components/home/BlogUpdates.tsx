@@ -33,8 +33,15 @@ const BlogUpdates: React.FC = () => {
   const swiperRef = useRef(null);
   return (
     <section className="py-16 bg-white dark:bg-gray-950">
-      <div className="max-w-5xl mx-auto px-6 md:px-8">
-        <h2 className="text-3xl font-bold text-center mb-8 text-blue-700 dark:text-white">Blog & Latest Updates</h2>
+      <div className="max-w-5xl mx-auto px-6 md:px-8 text-center">
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-12">
+          <span className="inline-block px-4 py-2 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 rounded-full text-sm font-semibold mb-4">Blog</span>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="text-gray-800 dark:text-white">Latest </span>
+            <span className="text-cyan-600 dark:text-cyan-400">Updates</span>
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">Stay informed with our latest news and feature announcements</p>
+        </motion.div>
         <Swiper
           modules={[Autoplay, Pagination, EffectFade]}
           spaceBetween={0}

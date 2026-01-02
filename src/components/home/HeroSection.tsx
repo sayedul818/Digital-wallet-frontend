@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => (
       </p>
       <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
         <Link to="/register" className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-100 transition">Create Wallet</Link>
-        <Link to="/add-money" className="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-green-600 transition">Add Money</Link>
+        <Link to="/login" className="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-green-600 transition">Add Money</Link>
       </div>
       <div className="mt-4 animate-bounce text-white/80">
         <span>▼</span>

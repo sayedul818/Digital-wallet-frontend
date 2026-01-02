@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CreditCard, Send, Download, FileText, QrCode } from 'lucide-react';
+import { CreditCard, Send, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const features = [
@@ -19,16 +19,6 @@ const features = [
     title: 'Withdraw',
     desc: 'Withdraw cash at agents or transfer to your bank.'
   },
-  {
-    icon: <FileText className="h-8 w-8 text-yellow-500" />,
-    title: 'Pay Bills',
-    desc: 'Pay utility bills and recharge services easily.'
-  },
-  {
-    icon: <QrCode className="h-8 w-8 text-teal-500" />,
-    title: 'Scan-to-Pay',
-    desc: 'Pay merchants instantly by scanning QR codes.'
-  },
 ];
 
 const cardVariants = {
@@ -40,8 +30,15 @@ const cardVariants = {
 const WalletFeatures: React.FC = () => (
   <>
     <section className="py-16 bg-gray-50 dark:bg-gray-900 dark:text-white">
-      <div className="max-w-5xl mx-auto px-6 md:px-8">
-        <h2 className="text-3xl font-bold text-center mb-8 text-blue-700 dark:text-white">Key Wallet Features</h2>
+      <div className="max-w-5xl mx-auto px-6 md:px-8 text-center">
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-12">
+          <span className="inline-block px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full text-sm font-semibold mb-4">Features</span>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="text-gray-800 dark:text-white">Key Wallet </span>
+            <span className="text-blue-600 dark:text-blue-400">Features</span>
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">Everything you need to manage your money with ease and security</p>
+        </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {features.map((feature) => (
             <motion.div

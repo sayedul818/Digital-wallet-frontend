@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 // Example logo URLs (replace with your own or static imports as needed)
 const logos = [
@@ -43,11 +44,16 @@ const LogoSlider: React.FC = () => {
   // Duplicate logos for seamless infinite scroll
   const allLogos = [...logos, ...logos];
   return (
-    <section className="w-full py-12 bg-white dark:bg-gradient-to-b dark:from-gray-950 dark:to-gray-900">
-      <div className="max-w-5xl mx-auto px-6 md:px-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-blue-700 dark:text-white">
-          These world-class teams already use PayWallet
-        </h2>
+    <section className="w-full py-16 bg-white dark:bg-gradient-to-b dark:from-gray-950 dark:to-gray-900">
+      <div className="max-w-5xl mx-auto px-6 md:px-8 text-center mb-12">
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <span className="inline-block px-4 py-2 bg-rose-100 dark:bg-rose-900/30 text-rose-600 dark:text-rose-400 rounded-full text-sm font-semibold mb-4">Partners</span>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="text-gray-800 dark:text-white">Trusted By </span>
+            <span className="text-rose-600 dark:text-rose-400">World-Class Teams</span>
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">These leading companies already use PayWallet for their payment needs</p>
+        </motion.div>
       </div>
       <div className="relative overflow-hidden w-full">
         <div

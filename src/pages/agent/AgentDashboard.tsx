@@ -19,12 +19,6 @@ const AgentDashboard = () => {
   const balance = balanceData?.balance ?? user?.balance ?? 0;
   const recentTransactions = txData?.transactions || [];
 
-  React.useEffect(() => {
-    console.log('Agent Dashboard - Transactions Data:', txData);
-    console.log('Agent Dashboard - Loading:', isLoading);
-    console.log('Agent Dashboard - Error:', error);
-  }, [txData, isLoading, error]);
-
   const stats = React.useMemo(() => {
     const totalCashIn = (recentTransactions || []).filter((t: any) => t.type === 'cash-in').reduce((s: number, t: any) => s + (t.amount || 0), 0);
     // Compute commission from transactions (assumes fixed 3% commission rate)

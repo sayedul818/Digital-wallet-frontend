@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const NewsletterSignup: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -14,8 +15,14 @@ const NewsletterSignup: React.FC = () => {
   return (
     <section className="py-16 bg-white dark:bg-gray-950">
       <div className="max-w-2xl mx-auto px-6 md:px-8 text-center">
-        <h2 className="text-3xl font-bold text-center mb-8 text-blue-700 dark:text-white">Get Wallet Updates</h2>
-        <p className="text-gray-600 mb-8">Sign up for our newsletter to receive the latest features, security tips, and offers.</p>
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-8">
+          <span className="inline-block px-4 py-2 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-full text-sm font-semibold mb-4">Newsletter</span>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="text-gray-800 dark:text-white">Stay </span>
+            <span className="text-pink-600 dark:text-pink-400">Updated</span>
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">Sign up for our newsletter to receive the latest features, security tips, and exclusive offers</p>
+        </motion.div>
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <div className="flex items-center gap-2 w-full sm:w-auto">
             <Mail className="h-6 w-6 text-blue-600" />

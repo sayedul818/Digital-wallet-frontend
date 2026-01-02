@@ -37,21 +37,27 @@ const Testimonials: React.FC = () => {
   const slidesPerView = isMobile ? 1 : 3;
   return (
     <section className="py-16 bg-blue-50 dark:bg-gray-900">
-      <div className="max-w-5xl mx-auto px-6 md:px-8">
-        <h2 className="text-3xl font-bold text-center mb-8 text-blue-700 dark:text-white">Testimonials & Reviews</h2>
-        <div className="py-16 bg-white dark:bg-gray-900 dark:text-white">
-          <div className="max-w-5xl mx-auto px-6 md:px-8 overflow-x-hidden">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 text-center">
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-12">
+          <span className="inline-block px-4 py-2 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-full text-sm font-semibold mb-4">Testimonials</span>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="text-gray-800 dark:text-white">Users </span>
+            <span className="text-orange-600 dark:text-orange-400">Love Us</span>
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">Hear from users who found their perfect wallet solution through our platform</p>
+        </motion.div>
+        <div className="py-8 md:py-16 bg-white dark:bg-gray-900 dark:text-white">
+          <div className="max-w-5xl mx-auto px-2 md:px-8 overflow-hidden">
             <Swiper
               modules={[Pagination, Autoplay]}
-              spaceBetween={0}
+              spaceBetween={isMobile ? 10 : 0}
               slidesPerView={slidesPerView}
               centeredSlides={true}
               loop={true}
               autoplay={{ delay: 5000, disableOnInteraction: false }}
               pagination={{ clickable: true }}
               onSlideChange={swiper => setActiveIndex(swiper.realIndex)}
-              className="pb-8"
-              style={{ overflow: 'visible', maxWidth: '100vw' }}
+              className="pb-12 testimonials-swiper"
             >
               {testimonials.map((testimonial, idx) => {
                 // Calculate slide position relative to center
@@ -63,28 +69,33 @@ const Testimonials: React.FC = () => {
                 ) slideState = 'side';
                 else slideState = 'hidden';
                 return (
-                  <SwiperSlide key={idx} style={{ display: 'flex', justifyContent: 'center', minWidth: 0 }}>
+                  <SwiperSlide key={idx} className="flex justify-center items-center">
                     <motion.div
-                      className={`flex flex-col items-center rounded-2xl p-4 md:p-8 m-4 transition-all duration-300
-                        ${slideState === 'center' ? 'bg-white/90 dark:bg-gray-800/90 scale-105 z-20 shadow-lg' : ''}
+                      className={`flex flex-col items-center rounded-2xl p-6 md:p-8 transition-all duration-300 w-full
+                        ${slideState === 'center' ? 'bg-white dark:bg-gray-800 scale-100 md:scale-105 z-20 shadow-xl' : ''}
                         ${slideState === 'side' ? 'bg-white/60 dark:bg-gray-800/60 scale-90 blur-sm z-10 shadow' : ''}
                         ${slideState === 'hidden' ? 'opacity-0 pointer-events-none' : ''}
                       `}
-                      style={{ minWidth: 0, width: isMobile ? '90vw' : 320, maxWidth: isMobile ? '98vw' : 400 }}
+                      style={{ 
+                        maxWidth: isMobile ? 'calc(100vw - 48px)' : '380px',
+                        minHeight: '200px'
+                      }}
                       animate={{
-                        scale: slideState === 'center' ? 1.08 : 0.92,
+                        scale: slideState === 'center' ? (isMobile ? 1 : 1.08) : 0.92,
                         filter: slideState === 'center' ? 'blur(0px)' : 'blur(4px)',
                         opacity: slideState === 'hidden' ? 0 : 1,
                       }}
                       transition={{ type: 'spring', stiffness: 200, damping: 24 }}
                       whileHover={{}}
                     >
-                      <div className="mb-4 flex items-center">
+                      <div className="mb-4 flex items-center justify-center">
                         {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="h-5 w-5 text-yellow-400" />
+                          <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
                         ))}
                       </div>
-                      <p className="text-lg text-gray-700 dark:text-gray-200 text-center mb-2">"{testimonial.review}"</p>
+                      <p className="text-base md:text-lg text-gray-700 dark:text-gray-200 text-center mb-4 px-2 leading-relaxed">
+                        "{testimonial.review}"
+                      </p>
                       <span className="font-semibold text-blue-700 dark:text-blue-300">{testimonial.name}</span>
                     </motion.div>
                   </SwiperSlide>
@@ -92,11 +103,22 @@ const Testimonials: React.FC = () => {
               })}
             </Swiper>
             <style>{`
+              .testimonials-swiper {
+                overflow: hidden !important;
+              }
+              .testimonials-swiper .swiper-wrapper {
+                align-items: center;
+              }
               .swiper-pagination {
-                display: flex; justify-content: center; gap: 0.5rem; margin-top: -1.5rem;
+                display: flex; 
+                justify-content: center; 
+                gap: 0.5rem; 
+                margin-top: 1rem;
+                position: relative;
               }
               .swiper-pagination-bullet {
-                width: 12px; height: 12px;
+                width: 12px; 
+                height: 12px;
                 border-radius: 9999px;
                 background: #dbeafe;
                 opacity: 0.6;

@@ -29,8 +29,15 @@ const FAQ: React.FC = () => {
 
   return (
     <section className="py-16 bg-white dark:bg-gray-900 dark:text-white">
-      <div className="max-w-5xl mx-auto px-6 md:px-8">
-        <h2 className="text-3xl font-bold text-center mb-8 text-blue-700 dark:text-white">Frequently Asked Questions</h2>
+      <div className="max-w-5xl mx-auto px-6 md:px-8 text-center">
+        <div className="mb-12">
+          <span className="inline-block px-4 py-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 rounded-full text-sm font-semibold mb-4">FAQ</span>
+          <h2 className="text-4xl font-bold mb-4">
+            <span className="text-gray-800 dark:text-white">Frequently Asked </span>
+            <span className="text-yellow-600 dark:text-yellow-400">Questions</span>
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">Find answers to common questions about our wallet service</p>
+        </div>
         <div className="space-y-4">
           {faqs.map((faq, idx) => (
             <div key={faq.question} className="bg-white dark:bg-gray-800 rounded-lg shadow p-4">
