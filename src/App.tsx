@@ -26,11 +26,15 @@ import NotFound from "./pages/NotFound";
 // User Pages
 import UserDashboard from "./pages/user/UserDashboard";
 import SendMoney from "./pages/user/SendMoney";
+import Deposit from "./pages/user/Deposit";
+import Withdraw from "./pages/user/Withdraw";
 import Transactions from "./pages/user/Transactions";
 import Profile from "./pages/user/Profile";
 
 // Agent Pages
 import AgentDashboard from "./pages/agent/AgentDashboard";
+import AgentTransactions from "./pages/agent/AgentTransactions";
+import AgentRequests from "./pages/agent/AgentRequests";
 import CashIn from "./pages/agent/CashIn";
 import CashOut from "./pages/agent/CashOut";
 
@@ -80,6 +84,8 @@ const App = () => (
                       <Routes>
                         <Route path="dashboard" element={<UserDashboard />} />
                         <Route path="send" element={<SendMoney />} />
+                        <Route path="deposit" element={<Deposit />} />
+                        <Route path="withdraw" element={<Withdraw />} />
                         <Route path="transactions" element={<Transactions />} />
                         <Route path="profile" element={<Profile />} />
                       </Routes>
@@ -98,7 +104,8 @@ const App = () => (
                         <Route path="dashboard" element={<AgentDashboard />} />
                         <Route path="cash-in" element={<CashIn />} />
                         <Route path="cash-out" element={<CashOut />} />
-                        <Route path="transactions" element={<Transactions />} />
+                        <Route path="requests" element={<AgentRequests />} />
+                        <Route path="transactions" element={<AgentTransactions />} />
                         <Route path="profile" element={<Profile />} />
                       </Routes>
                     </DashboardLayout>

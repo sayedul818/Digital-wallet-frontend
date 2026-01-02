@@ -217,6 +217,47 @@ export const walletApi = createApi({
       query: () => '/admin/overview',
       providesTags: [{ type: 'Admin', id: 'STATS' }],
     }),
+    // Money Request endpoints
+    createMoneyRequest: builder.mutation({
+      query: (data) => ({
+        url: '/users/requests',
+        method: 'POST',
+        body: data,
+      }),
+      invalidatesTags: [{ type: 'User', id: 'SELF' }],
+    }),
+    getUserRequests: builder.query({
+      query: ({ status, page = 1, limit = 10 }: any) => ({
+        url: '/users/requests',
+        params: { status, page, limit },
+      }),
+      providesTags: [{ type: 'User', id: 'SELF' }],
+    }),
+    getAgentRequests: builder.query({
+      query: ({ status, page = 1, limit = 20 }: any) => ({
+        url: '/agents/requests',
+        params: { status, page, limit },
+      }),
+      providesTags: [{ type: 'Agent', id: 'SELF' }],
+    }),
+    approveMoneyRequest: builder.mutation({
+      query: (requestId: string) => ({
+        url: `/agents/requests/${requestId}/approve`,
+        method: 'PATCH',
+      }),
+      invalidatesTags: [
+        { type: 'Agent', id: 'SELF' },
+        { type: 'User', id: 'SELF' },
+        { type: 'Transaction', id: 'SELF' },
+      ],
+    }),
+    rejectMoneyRequest: builder.mutation({
+      query: (requestId: string) => ({
+        url: `/agents/requests/${requestId}/reject`,
+        method: 'PATCH',
+      }),
+      invalidatesTags: [{ type: 'Agent', id: 'SELF' }],
+    }),
   }),
 });
 
@@ -237,4 +278,9 @@ export const {
   useGetSystemStatsQuery,
   useGetAllTransactionsQuery,
   useGetAgentTransactionsQuery,
+  useCreateMoneyRequestMutation,
+  useGetUserRequestsQuery,
+  useGetAgentRequestsQuery,
+  useApproveMoneyRequestMutation,
+  useRejectMoneyRequestMutation,
 } = walletApi;

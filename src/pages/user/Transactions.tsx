@@ -114,21 +114,33 @@ const Transactions = () => {
                     </TableCell>
                   </TableRow>
                 ) : paginatedTransactions.length > 0 ? (
-                  paginatedTransactions.map((txn) => (
-                    <TableRow key={txn.id}>
-                      <TableCell className="font-medium">{txn.id}</TableCell>
-                      <TableCell>{txn.date}</TableCell>
-                      <TableCell>{txn.type}</TableCell>
-                      <TableCell className={`font-semibold ${getAmountColor(txn.amount)}`}>
-                        {txn.amount > 0 ? '+' : ''}${Math.abs(txn.amount)}
+                  paginatedTransactions.map((txn: any) => (
+                    <TableRow key={txn._id || txn.id}>
+                      <TableCell className="font-medium text-xs font-mono text-muted-foreground">
+                        {(txn._id || txn.id)?.slice(-6) || 'N/A'}
+                      </TableCell>
+                      <TableCell className="text-xs whitespace-nowrap">
+                        {new Date(txn.createdAt).toLocaleString()}
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline" className={getStatusColor(txn.status)}>
-                          {txn.status}
+                        <Badge variant="outline" className={txn.type === 'received' || txn.type === 'deposit' ? 'bg-success/10 text-success' : 'bg-primary/10 text-primary'}>
+                          {txn.type || 'N/A'}
                         </Badge>
                       </TableCell>
-                      <TableCell>{txn.party}</TableCell>
-                      <TableCell className="text-muted-foreground">{txn.remarks}</TableCell>
+                      <TableCell className={`font-semibold ${getAmountColor(txn.amount)}`}>
+                        ${txn.amount?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) || '0.00'}
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant="outline" className={getStatusColor(txn.status || 'Completed')}>
+                          {txn.status || 'Completed'}
+                        </Badge>
+                      </TableCell>
+                      <TableCell className="font-medium">
+                        {txn.sender?.name || txn.receiver?.name || txn.party || 'N/A'}
+                      </TableCell>
+                      <TableCell className="text-muted-foreground text-xs max-w-xs truncate">
+                        {txn.notes || txn.remarks || '-'}
+                      </TableCell>
                     </TableRow>
                   ))
                 ) : (

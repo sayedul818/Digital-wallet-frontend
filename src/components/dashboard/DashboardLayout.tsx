@@ -18,6 +18,9 @@ import {
   Users,
   DollarSign,
   Settings,
+  ArrowDownLeft,
+  ArrowUpRight,
+  HandCoins,
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -41,6 +44,8 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const userMenuItems = [
     { icon: LayoutDashboard, label: 'Overview', path: '/user/dashboard' },
     { icon: Send, label: 'Send Money', path: '/user/send' },
+    { icon: ArrowDownLeft, label: 'Deposit Money', path: '/user/deposit' },
+    { icon: ArrowUpRight, label: 'Withdraw Money', path: '/user/withdraw' },
     { icon: History, label: 'Transactions', path: '/user/transactions' },
     { icon: UserIcon, label: 'Profile', path: '/user/profile' },
   ];
@@ -48,7 +53,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   const agentMenuItems = [
     { icon: LayoutDashboard, label: 'Overview', path: '/agent/dashboard' },
     { icon: DollarSign, label: 'Cash In', path: '/agent/cash-in' },
-    { icon: DollarSign, label: 'Cash Out', path: '/agent/cash-out' },
+    { icon: HandCoins, label: 'Requests', path: '/agent/requests' },
     { icon: History, label: 'Transactions', path: '/agent/transactions' },
     { icon: UserIcon, label: 'Profile', path: '/agent/profile' },
   ];
