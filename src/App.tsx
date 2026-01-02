@@ -41,6 +41,7 @@ import CashOut from "./pages/agent/CashOut";
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import UserManagement from "./pages/admin/UserManagement";
+import Agents from "./pages/admin/Agents";
 
 const queryClient = new QueryClient();
 
@@ -122,7 +123,7 @@ const App = () => (
                       <Routes>
                         <Route path="dashboard" element={<AdminDashboard />} />
                         <Route path="users" element={<UserManagement />} />
-                        <Route path="agents" element={<UserManagement />} />
+                        <Route path="agents" element={<Agents />} />
                         <Route path="transactions" element={<Transactions />} />
                         <Route path="settings" element={<div>Settings Page</div>} />
                         <Route path="profile" element={<Profile />} />

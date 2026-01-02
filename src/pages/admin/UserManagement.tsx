@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useGetAllUsersQuery, useUpdateUserStatusMutation, useApproveAgentMutation, useAdminCreditMutation } from '@/store/api/walletApi';
+import { useGetAllUsersQuery, useUpdateUserStatusMutation, useAdminCreditMutation } from '@/store/api/walletApi';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -42,10 +42,9 @@ const UserManagement = () => {
   const [crediting, setCrediting] = useState(false);
   const [adminCredit] = useAdminCreditMutation();
 
-  // live users from API
-  const { data, isLoading, isError, refetch } = useGetAllUsersQuery({ page: 1, search: searchQuery });
+  // live users from API - filter by role 'user' only
+  const { data, isLoading, isError, refetch } = useGetAllUsersQuery({ page: 1, search: searchQuery, role: 'user' });
   const [updateUserStatus] = useUpdateUserStatusMutation();
-  const [approveAgent] = useApproveAgentMutation();
 
   const users = data?.users || [];
   const filteredUsers = users.filter((user: any) => {
@@ -158,25 +157,6 @@ const UserManagement = () => {
                         <Button variant="outline" size="sm" onClick={() => { setCreditTarget(user); setCreditAmount(''); }}>
                           Credit
                         </Button>
-                        {user.role === 'agent' && !user.isApproved && (
-                          <Button
-                            variant="secondary"
-                            size="sm"
-                            onClick={async () => {
-                              try {
-                                await approveAgent({ agentId: user._id || user.id }).unwrap();
-                                toast.success(`Agent ${user.name} approved`);
-                                refetch();
-                              } catch (err: any) {
-                                console.error(err);
-                                toast.error(err?.data?.message || 'Approve failed');
-                              }
-                            }}
-                          >
-                            <CheckCircle className="mr-1 h-3 w-3" />
-                            Approve
-                          </Button>
-                        )}
                         {((user.isActive || user.status === 'active') ? (
                           <Button
                             variant="destructive"

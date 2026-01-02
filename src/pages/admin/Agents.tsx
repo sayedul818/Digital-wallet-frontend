@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  useGetAllAgentsQuery,
+  useGetAllUsersQuery,
   useApproveAgentMutation,
   useUpdateUserStatusMutation,
   useAdminCreditMutation,
@@ -31,9 +31,7 @@ import {
 } from '@/components/ui/alert-dialog';
 
 const Agents = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [page] = useState(1);
-  const { data, isLoading, isError, refetch } = useGetAllAgentsQuery({ page, search: searchQuery });
+  const [searchQuery, setSearchQuery] = useState('');  const [page] = useState(1);  const { data, isLoading, isError, refetch } = useGetAllUsersQuery({ page, search: searchQuery, role: 'agent' });
   const [approveAgent, { isLoading: isApproving }] = useApproveAgentMutation();
   const [updateUserStatus] = useUpdateUserStatusMutation();
   const [selectedAgent, setSelectedAgent] = useState<any>(null);
