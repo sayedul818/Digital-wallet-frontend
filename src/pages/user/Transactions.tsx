@@ -42,6 +42,44 @@ const Transactions = () => {
     return amount > 0 ? 'text-success' : 'text-destructive';
   };
 
+  const handleExportCSV = () => {
+    if (transactions.length === 0) {
+      alert('No transactions to export');
+      return;
+    }
+
+    // CSV headers
+    const headers = ['ID', 'Date & Time', 'Type', 'Amount', 'Status', 'Party', 'Remarks'];
+    
+    // CSV rows
+    const rows = transactions.map((txn: any) => [
+      txn._id || txn.id || 'N/A',
+      new Date(txn.createdAt).toLocaleString(),
+      txn.type || 'N/A',
+      txn.amount?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) || '0.00',
+      txn.status || 'Completed',
+      txn.sender?.name || txn.receiver?.name || txn.party || 'N/A',
+      txn.notes || txn.remarks || '-'
+    ]);
+
+    // Combine headers and rows
+    const csvContent = [
+      headers.join(','),
+      ...rows.map(row => row.map((cell: any) => `"${cell}"`).join(','))
+    ].join('\n');
+
+    // Create blob and download
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    link.setAttribute('href', url);
+    link.setAttribute('download', `transactions-${new Date().toISOString().split('T')[0]}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="space-y-6">
       <div>
@@ -53,7 +91,7 @@ const Transactions = () => {
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <CardTitle>All Transactions</CardTitle>
-            <Button variant="outline" size="sm">
+            <Button variant="outline" size="sm" onClick={handleExportCSV}>
               <Download className="mr-2 h-4 w-4" />
               Export CSV
             </Button>
