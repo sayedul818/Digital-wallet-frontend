@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import { ThemeProvider } from 'next-themes';
@@ -49,6 +49,18 @@ import Agents from "./pages/admin/Agents";
 
 const queryClient = new QueryClient();
 
+// Conditional Footer Component
+const ConditionalFooter = () => {
+  const location = useLocation();
+  const hideFooterPaths = ['/login', '/register'];
+  
+  if (hideFooterPaths.includes(location.pathname)) {
+    return null;
+  }
+  
+  return <Footer />;
+};
+
 const App = () => (
   <Provider store={store}>
     <QueryClientProvider client={queryClient}>
@@ -79,7 +91,7 @@ const App = () => (
                         <Route path="/register" element={<Register />} />
                       </Routes>
                     </main>
-                    <Footer />
+                    <ConditionalFooter />
                   </div>
                 }
               />

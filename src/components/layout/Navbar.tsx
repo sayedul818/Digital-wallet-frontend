@@ -110,6 +110,17 @@ const Navbar = () => {
                   </Link>
                 ))}
                 <div className="border-t pt-4 mt-4 space-y-4">
+                  {/* Dark Mode Toggle for Mobile */}
+                  <Button
+                    variant="outline"
+                    className="w-full justify-start gap-2"
+                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                  >
+                    <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                    <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 ml-2" />
+                    <span className="ml-6">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+                  </Button>
+
                   {isAuthenticated ? (
                     <>
                       <Button variant="outline" className="w-full" asChild>

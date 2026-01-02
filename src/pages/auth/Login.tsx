@@ -86,22 +86,22 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 px-4 bg-white dark:bg-gradient-to-b dark:from-gray-950 dark:to-gray-900">
-      <Card className="w-full max-w-md border-0 shadow-xl">
-        <CardHeader className="space-y-4">
+    <div className="min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center py-4 md:py-12 px-4 bg-white dark:bg-gradient-to-b dark:from-gray-950 dark:to-gray-900">
+      <Card className="w-full max-w-md border-0 shadow-xl my-auto">
+        <CardHeader className="space-y-3 md:space-y-4 py-4 md:py-6">
           <div className="flex justify-center">
-            <div className="h-16 w-16 rounded-2xl bg-gradient-primary flex items-center justify-center">
-              <Wallet className="h-8 w-8 text-primary-foreground" />
+            <div className="h-12 w-12 md:h-16 md:w-16 rounded-2xl bg-gradient-primary flex items-center justify-center">
+              <Wallet className="h-6 w-6 md:h-8 md:w-8 text-primary-foreground" />
             </div>
           </div>
           <div className="text-center">
-            <CardTitle className="text-2xl">Welcome Back</CardTitle>
+            <CardTitle className="text-xl md:text-2xl">Welcome Back</CardTitle>
             <CardDescription>Sign in to your PayzaGo account</CardDescription>
           </div>
         </CardHeader>
-        <CardContent>
+        <CardContent className="px-4 md:px-6 pb-4 md:pb-6">
           {/* Auto-credential section */}
-          <div className="flex justify-center gap-2 mb-6">
+          <div className="flex justify-center gap-2 mb-4 md:mb-6">
             {credentialSets.map((cred) => (
               <button
                 key={cred.label}
